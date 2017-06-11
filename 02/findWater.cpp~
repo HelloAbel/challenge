@@ -1,0 +1,56 @@
+//寻找连通的水坑数量
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void solve(unsigned &num, vector<vector<char>> &vvc)
+{
+    auto iter1=vvc.begin();
+    auto iter2 = iter1->begin();
+    for(; iter1!=vvc.end(); ++iter1) {
+        iter2 = iter1->begin();
+        for(; iter2!=iter1->end(); ++iter2) {
+            if(*iter2=='w')
+                break;
+        }
+        if(iter2!=iter1->end())
+            break;
+    }
+
+    for()
+}
+
+void findWater(unsigned &num, vector<vector<char>> &b)
+{
+    vector<vector<char>> vvc(b);
+    solve(num, vvc);
+}
+
+int main()
+{
+    unsigned num = 0;
+    vector<vector<char>> board;
+    typedef decltype(board.size()) scapeType;
+    scapeType len, breadth;
+    char ele;
+
+    cout << "请输入地板长度： " << endl;
+    cin >> len;
+    cout << "请输入地板宽度: " << endl;
+    cin >> breadth;
+    cout << "请输入地板积水情况： " << endl;
+    for(auto l=0; l!=len; ++l) {
+        vector<char> line;
+        for(auto b=0; b!=breadth; ++b) {
+            cin >> ele;
+            if(ele=='\n')
+                break;
+            line.push_back(ele);
+        }
+        board.push_back(line);
+    }
+    findWater(num, board);
+
+    return 0;
+}
